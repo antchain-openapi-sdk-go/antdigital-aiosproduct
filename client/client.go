@@ -272,13 +272,13 @@ type QueryGwdefaultChatstreamResponse struct {
 	SessionId *string `json:"session_id,omitempty" xml:"session_id,omitempty"`
 	// 整体成功标志，默认 true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-	// 固定 "chat_result"（由输出层注入，不在信封 dataclass 内）
+	// 固定chat_result
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 	// 查询 ID；多为空串
 	QueryId *string `json:"query_id,omitempty" xml:"query_id,omitempty"`
 	// true=流式中间批次；false=收尾批次
 	HasStream *bool `json:"has_stream,omitempty" xml:"has_stream,omitempty"`
-	// 正文流（TEXT/CARD/COT_*/CONTENT_*/HORSE_RIDE_*/CUSTOM_CARD_*/WITHDRAW/FORBIDDEN/TASK）
+	// 正文流
 	ChatList *string `json:"chat_list,omitempty" xml:"chat_list,omitempty"`
 	// 推荐问题（SUG），仅收尾批次非空
 	SugList *string `json:"sug_list,omitempty" xml:"sug_list,omitempty"`
@@ -633,7 +633,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.0.1"),
+				"sdk_version":      tea.String("1.0.2"),
 				"_prod_code":       tea.String("AIOSPRODUCT"),
 				"_prod_channel":    tea.String("default"),
 			}
