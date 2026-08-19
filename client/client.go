@@ -838,8 +838,8 @@ type QueryGwchildinsuranceProfilelatestRequest struct {
 	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
 	// 当前联调租户；必须精确命中 finaigateway 发布白名单
 	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
-	// 当前用户，最大 64 字符
-	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty" require:"true"`
+	// 请求输入
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
 }
 
 func (s QueryGwchildinsuranceProfilelatestRequest) String() string {
@@ -865,8 +865,8 @@ func (s *QueryGwchildinsuranceProfilelatestRequest) SetTenantId(v string) *Query
 	return s
 }
 
-func (s *QueryGwchildinsuranceProfilelatestRequest) SetUserId(v string) *QueryGwchildinsuranceProfilelatestRequest {
-	s.UserId = &v
+func (s *QueryGwchildinsuranceProfilelatestRequest) SetRequestData(v string) *QueryGwchildinsuranceProfilelatestRequest {
+	s.RequestData = &v
 	return s
 }
 
@@ -929,10 +929,8 @@ type QueryGwchildinsuranceProfiledetailRequest struct {
 	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
 	// 当前联调租户；必须精确命中 finaigateway 发布白名单
 	TenanatId *string `json:"tenanat_id,omitempty" xml:"tenanat_id,omitempty" require:"true"`
-	// 当前用户，最大 64 字符
-	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty" require:"true"`
-	// 当前会话，最大 64 字符
-	SessionId *string `json:"session_id,omitempty" xml:"session_id,omitempty" require:"true"`
+	// 输入参数
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
 }
 
 func (s QueryGwchildinsuranceProfiledetailRequest) String() string {
@@ -958,13 +956,8 @@ func (s *QueryGwchildinsuranceProfiledetailRequest) SetTenanatId(v string) *Quer
 	return s
 }
 
-func (s *QueryGwchildinsuranceProfiledetailRequest) SetUserId(v string) *QueryGwchildinsuranceProfiledetailRequest {
-	s.UserId = &v
-	return s
-}
-
-func (s *QueryGwchildinsuranceProfiledetailRequest) SetSessionId(v string) *QueryGwchildinsuranceProfiledetailRequest {
-	s.SessionId = &v
+func (s *QueryGwchildinsuranceProfiledetailRequest) SetRequestData(v string) *QueryGwchildinsuranceProfiledetailRequest {
+	s.RequestData = &v
 	return s
 }
 
@@ -1242,7 +1235,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.0.4"),
+				"sdk_version":      tea.String("1.0.5"),
 				"_prod_code":       tea.String("AIOSPRODUCT"),
 				"_prod_channel":    tea.String("default"),
 			}
