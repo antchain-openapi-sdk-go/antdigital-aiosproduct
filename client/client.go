@@ -928,7 +928,7 @@ type QueryGwchildinsuranceProfiledetailRequest struct {
 	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
 	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
 	// 当前联调租户；必须精确命中 finaigateway 发布白名单
-	TenanatId *string `json:"tenanat_id,omitempty" xml:"tenanat_id,omitempty" require:"true"`
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
 	// 输入参数
 	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
 }
@@ -951,8 +951,8 @@ func (s *QueryGwchildinsuranceProfiledetailRequest) SetProductInstanceId(v strin
 	return s
 }
 
-func (s *QueryGwchildinsuranceProfiledetailRequest) SetTenanatId(v string) *QueryGwchildinsuranceProfiledetailRequest {
-	s.TenanatId = &v
+func (s *QueryGwchildinsuranceProfiledetailRequest) SetTenantId(v string) *QueryGwchildinsuranceProfiledetailRequest {
+	s.TenantId = &v
 	return s
 }
 
@@ -1235,7 +1235,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.0.5"),
+				"sdk_version":      tea.String("1.0.6"),
 				"_prod_code":       tea.String("AIOSPRODUCT"),
 				"_prod_channel":    tea.String("default"),
 			}
