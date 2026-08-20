@@ -1105,6 +1105,188 @@ func (s *SaveGwchildinsuranceProfileResponse) SetSuccess(v bool) *SaveGwchildins
 	return s
 }
 
+type QueryGwchildinsuranceSolutionkycdetailRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 当前联调租户；必须精确命中 finaigateway 发布白名单
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
+	// 输入参数
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
+}
+
+func (s QueryGwchildinsuranceSolutionkycdetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwchildinsuranceSolutionkycdetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailRequest) SetAuthToken(v string) *QueryGwchildinsuranceSolutionkycdetailRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailRequest) SetProductInstanceId(v string) *QueryGwchildinsuranceSolutionkycdetailRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailRequest) SetTenantId(v string) *QueryGwchildinsuranceSolutionkycdetailRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailRequest) SetRequestData(v string) *QueryGwchildinsuranceSolutionkycdetailRequest {
+	s.RequestData = &v
+	return s
+}
+
+type QueryGwchildinsuranceSolutionkycdetailResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 业务数据 JSON 字符串
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 成功时允许为 null，失败时返回可理解原因
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 业务处理是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryGwchildinsuranceSolutionkycdetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwchildinsuranceSolutionkycdetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailResponse) SetReqMsgId(v string) *QueryGwchildinsuranceSolutionkycdetailResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailResponse) SetResultCode(v string) *QueryGwchildinsuranceSolutionkycdetailResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailResponse) SetResultMsg(v string) *QueryGwchildinsuranceSolutionkycdetailResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailResponse) SetData(v string) *QueryGwchildinsuranceSolutionkycdetailResponse {
+	s.Data = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailResponse) SetMessage(v string) *QueryGwchildinsuranceSolutionkycdetailResponse {
+	s.Message = &v
+	return s
+}
+
+func (s *QueryGwchildinsuranceSolutionkycdetailResponse) SetSuccess(v bool) *QueryGwchildinsuranceSolutionkycdetailResponse {
+	s.Success = &v
+	return s
+}
+
+type SaveGwchildinsuranceSolutionkycRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 租户标识；当前联调必须命中 finaigateway 发布白名单
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
+	// 当前业务请求对象的 JSON 字符串
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
+}
+
+func (s SaveGwchildinsuranceSolutionkycRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveGwchildinsuranceSolutionkycRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveGwchildinsuranceSolutionkycRequest) SetAuthToken(v string) *SaveGwchildinsuranceSolutionkycRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycRequest) SetProductInstanceId(v string) *SaveGwchildinsuranceSolutionkycRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycRequest) SetTenantId(v string) *SaveGwchildinsuranceSolutionkycRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycRequest) SetRequestData(v string) *SaveGwchildinsuranceSolutionkycRequest {
+	s.RequestData = &v
+	return s
+}
+
+type SaveGwchildinsuranceSolutionkycResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 业务数据 JSON 字符串
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 成功时允许为 null，失败时返回可理解原因
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 业务处理是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveGwchildinsuranceSolutionkycResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveGwchildinsuranceSolutionkycResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveGwchildinsuranceSolutionkycResponse) SetReqMsgId(v string) *SaveGwchildinsuranceSolutionkycResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycResponse) SetResultCode(v string) *SaveGwchildinsuranceSolutionkycResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycResponse) SetResultMsg(v string) *SaveGwchildinsuranceSolutionkycResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycResponse) SetData(v string) *SaveGwchildinsuranceSolutionkycResponse {
+	s.Data = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycResponse) SetMessage(v string) *SaveGwchildinsuranceSolutionkycResponse {
+	s.Message = &v
+	return s
+}
+
+func (s *SaveGwchildinsuranceSolutionkycResponse) SetSuccess(v bool) *SaveGwchildinsuranceSolutionkycResponse {
+	s.Success = &v
+	return s
+}
+
 type Client struct {
 	Endpoint                *string
 	RegionId                *string
@@ -1235,7 +1417,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.0.6"),
+				"sdk_version":      tea.String("1.0.7"),
 				"_prod_code":       tea.String("AIOSPRODUCT"),
 				"_prod_channel":    tea.String("default"),
 			}
@@ -1538,6 +1720,78 @@ func (client *Client) SaveGwchildinsuranceProfileEx(request *SaveGwchildinsuranc
 	}
 	_result = &SaveGwchildinsuranceProfileResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.profile.save"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 少儿保险 KYC 查询
+//
+// Summary: 少儿保险 KYC 查询
+func (client *Client) QueryGwchildinsuranceSolutionkycdetail(request *QueryGwchildinsuranceSolutionkycdetailRequest) (_result *QueryGwchildinsuranceSolutionkycdetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryGwchildinsuranceSolutionkycdetailResponse{}
+	_body, _err := client.QueryGwchildinsuranceSolutionkycdetailEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 少儿保险 KYC 查询
+//
+// Summary: 少儿保险 KYC 查询
+func (client *Client) QueryGwchildinsuranceSolutionkycdetailEx(request *QueryGwchildinsuranceSolutionkycdetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGwchildinsuranceSolutionkycdetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryGwchildinsuranceSolutionkycdetailResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.solutionkycdetail.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 少儿保险 KYC 保存
+//
+// Summary: 少儿保险 KYC 保存
+func (client *Client) SaveGwchildinsuranceSolutionkyc(request *SaveGwchildinsuranceSolutionkycRequest) (_result *SaveGwchildinsuranceSolutionkycResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &SaveGwchildinsuranceSolutionkycResponse{}
+	_body, _err := client.SaveGwchildinsuranceSolutionkycEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 少儿保险 KYC 保存
+//
+// Summary: 少儿保险 KYC 保存
+func (client *Client) SaveGwchildinsuranceSolutionkycEx(request *SaveGwchildinsuranceSolutionkycRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SaveGwchildinsuranceSolutionkycResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &SaveGwchildinsuranceSolutionkycResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.solutionkyc.save"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
