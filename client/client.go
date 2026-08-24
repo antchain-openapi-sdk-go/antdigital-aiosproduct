@@ -1287,6 +1287,335 @@ func (s *SaveGwchildinsuranceSolutionkycResponse) SetSuccess(v bool) *SaveGwchil
 	return s
 }
 
+type QueryGwmcpdefaultChatRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 用户标识
+	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty" require:"true"`
+	// 租户标识
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
+	// 业务配置标识（必传），决定模型、策略、提示词
+	AgentCode *string `json:"agent_code,omitempty" xml:"agent_code,omitempty" require:"true"`
+	// 用户输入
+	Message *string `json:"message,omitempty" xml:"message,omitempty" require:"true"`
+	// 会话标识（可选），新会话不传，继续会话传
+	SessionId *string `json:"session_id,omitempty" xml:"session_id,omitempty"`
+	// 扩展字段（可选），用于后端服务直接调用时指定技术参数
+	ExtInfo *string `json:"ext_info,omitempty" xml:"ext_info,omitempty"`
+	// 标签过滤字段（可选），用于按标签过滤生效的 expertAgents/skills/tools
+	TagInfo *string `json:"tag_info,omitempty" xml:"tag_info,omitempty"`
+	// 由业务指定不同的 gateway_code
+	GatewayCode *string `json:"gateway_code,omitempty" xml:"gateway_code,omitempty"`
+}
+
+func (s QueryGwmcpdefaultChatRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwmcpdefaultChatRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetAuthToken(v string) *QueryGwmcpdefaultChatRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetProductInstanceId(v string) *QueryGwmcpdefaultChatRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetUserId(v string) *QueryGwmcpdefaultChatRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetTenantId(v string) *QueryGwmcpdefaultChatRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetAgentCode(v string) *QueryGwmcpdefaultChatRequest {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetMessage(v string) *QueryGwmcpdefaultChatRequest {
+	s.Message = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetSessionId(v string) *QueryGwmcpdefaultChatRequest {
+	s.SessionId = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetExtInfo(v string) *QueryGwmcpdefaultChatRequest {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetTagInfo(v string) *QueryGwmcpdefaultChatRequest {
+	s.TagInfo = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatRequest) SetGatewayCode(v string) *QueryGwmcpdefaultChatRequest {
+	s.GatewayCode = &v
+	return s
+}
+
+type QueryGwmcpdefaultChatResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 会话id
+	SessionId *string `json:"session_id,omitempty" xml:"session_id,omitempty"`
+	// 业务配置标识（必传），决定模型、策略、提示词
+	AgentCode *string `json:"agent_code,omitempty" xml:"agent_code,omitempty"`
+	// 回答
+	Answer *string `json:"answer,omitempty" xml:"answer,omitempty"`
+	// 链路id
+	TraceId *string `json:"trace_id,omitempty" xml:"trace_id,omitempty"`
+	// 附加信息
+	Metadata *string `json:"metadata,omitempty" xml:"metadata,omitempty"`
+}
+
+func (s QueryGwmcpdefaultChatResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwmcpdefaultChatResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetReqMsgId(v string) *QueryGwmcpdefaultChatResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetResultCode(v string) *QueryGwmcpdefaultChatResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetResultMsg(v string) *QueryGwmcpdefaultChatResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetSessionId(v string) *QueryGwmcpdefaultChatResponse {
+	s.SessionId = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetAgentCode(v string) *QueryGwmcpdefaultChatResponse {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetAnswer(v string) *QueryGwmcpdefaultChatResponse {
+	s.Answer = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetTraceId(v string) *QueryGwmcpdefaultChatResponse {
+	s.TraceId = &v
+	return s
+}
+
+func (s *QueryGwmcpdefaultChatResponse) SetMetadata(v string) *QueryGwmcpdefaultChatResponse {
+	s.Metadata = &v
+	return s
+}
+
+type SaveGwchildinsurancePlanningtargetsRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 租户标识，沿用已发布 Profile API 的租户校验。
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
+	// JSON 字符串形式的业务请求；必须是单层 JSON 字符串，不能再次序列化成二层 JSON 字符串。
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
+}
+
+func (s SaveGwchildinsurancePlanningtargetsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveGwchildinsurancePlanningtargetsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsRequest) SetAuthToken(v string) *SaveGwchildinsurancePlanningtargetsRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsRequest) SetProductInstanceId(v string) *SaveGwchildinsurancePlanningtargetsRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsRequest) SetTenantId(v string) *SaveGwchildinsurancePlanningtargetsRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsRequest) SetRequestData(v string) *SaveGwchildinsurancePlanningtargetsRequest {
+	s.RequestData = &v
+	return s
+}
+
+type SaveGwchildinsurancePlanningtargetsResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 业务数据 JSON 字符串；内容为 Planning Targets 业务对象
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 成功时允许为 `null`，失败时返回可理解原因。
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 业务处理是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveGwchildinsurancePlanningtargetsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveGwchildinsurancePlanningtargetsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsResponse) SetReqMsgId(v string) *SaveGwchildinsurancePlanningtargetsResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsResponse) SetResultCode(v string) *SaveGwchildinsurancePlanningtargetsResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsResponse) SetResultMsg(v string) *SaveGwchildinsurancePlanningtargetsResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsResponse) SetData(v string) *SaveGwchildinsurancePlanningtargetsResponse {
+	s.Data = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsResponse) SetMessage(v string) *SaveGwchildinsurancePlanningtargetsResponse {
+	s.Message = &v
+	return s
+}
+
+func (s *SaveGwchildinsurancePlanningtargetsResponse) SetSuccess(v bool) *SaveGwchildinsurancePlanningtargetsResponse {
+	s.Success = &v
+	return s
+}
+
+type QueryGwchildinsurancePlanningtargetsRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 租户标识，当前使用 CONSOLE_DEFAULT
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
+	// JSON 字符串形式的业务请求
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
+}
+
+func (s QueryGwchildinsurancePlanningtargetsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwchildinsurancePlanningtargetsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsRequest) SetAuthToken(v string) *QueryGwchildinsurancePlanningtargetsRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsRequest) SetProductInstanceId(v string) *QueryGwchildinsurancePlanningtargetsRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsRequest) SetTenantId(v string) *QueryGwchildinsurancePlanningtargetsRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsRequest) SetRequestData(v string) *QueryGwchildinsurancePlanningtargetsRequest {
+	s.RequestData = &v
+	return s
+}
+
+type QueryGwchildinsurancePlanningtargetsResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 业务数据 JSON 字符串
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 成功时允许为 null，失败时返回可理解原因
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 业务处理是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryGwchildinsurancePlanningtargetsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwchildinsurancePlanningtargetsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsResponse) SetReqMsgId(v string) *QueryGwchildinsurancePlanningtargetsResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsResponse) SetResultCode(v string) *QueryGwchildinsurancePlanningtargetsResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsResponse) SetResultMsg(v string) *QueryGwchildinsurancePlanningtargetsResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsResponse) SetData(v string) *QueryGwchildinsurancePlanningtargetsResponse {
+	s.Data = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsResponse) SetMessage(v string) *QueryGwchildinsurancePlanningtargetsResponse {
+	s.Message = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetsResponse) SetSuccess(v bool) *QueryGwchildinsurancePlanningtargetsResponse {
+	s.Success = &v
+	return s
+}
+
 type Client struct {
 	Endpoint                *string
 	RegionId                *string
@@ -1417,7 +1746,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.0.7"),
+				"sdk_version":      tea.String("1.0.8"),
 				"_prod_code":       tea.String("AIOSPRODUCT"),
 				"_prod_channel":    tea.String("default"),
 			}
@@ -1792,6 +2121,114 @@ func (client *Client) SaveGwchildinsuranceSolutionkycEx(request *SaveGwchildinsu
 	}
 	_result = &SaveGwchildinsuranceSolutionkycResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.solutionkyc.save"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: mcp网关调用
+//
+// Summary: mcp网关调用
+func (client *Client) QueryGwmcpdefaultChat(request *QueryGwmcpdefaultChatRequest) (_result *QueryGwmcpdefaultChatResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryGwmcpdefaultChatResponse{}
+	_body, _err := client.QueryGwmcpdefaultChatEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: mcp网关调用
+//
+// Summary: mcp网关调用
+func (client *Client) QueryGwmcpdefaultChatEx(request *QueryGwmcpdefaultChatRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGwmcpdefaultChatResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryGwmcpdefaultChatResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwmcpdefault.chat.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 根据最新画像版本，保存指定用户、指定会话参与保险规划的稳定 `childIds`，并返回最新规划上下文。调用方必须传 `profileVersion`、`childIds`、`idempotencyKey`；不按昵称或数组位置选择。
+//
+// Summary: 根据最新画像版本，保存指定用户、指定会话参与保险规划的稳定 `childIds`，并返回最新规划上下文。调用方必须传 `profileVersion`、`childIds`、`idempotencyKey`；不按昵称或数组位置选择。
+func (client *Client) SaveGwchildinsurancePlanningtargets(request *SaveGwchildinsurancePlanningtargetsRequest) (_result *SaveGwchildinsurancePlanningtargetsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &SaveGwchildinsurancePlanningtargetsResponse{}
+	_body, _err := client.SaveGwchildinsurancePlanningtargetsEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 根据最新画像版本，保存指定用户、指定会话参与保险规划的稳定 `childIds`，并返回最新规划上下文。调用方必须传 `profileVersion`、`childIds`、`idempotencyKey`；不按昵称或数组位置选择。
+//
+// Summary: 根据最新画像版本，保存指定用户、指定会话参与保险规划的稳定 `childIds`，并返回最新规划上下文。调用方必须传 `profileVersion`、`childIds`、`idempotencyKey`；不按昵称或数组位置选择。
+func (client *Client) SaveGwchildinsurancePlanningtargetsEx(request *SaveGwchildinsurancePlanningtargetsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SaveGwchildinsurancePlanningtargetsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &SaveGwchildinsurancePlanningtargetsResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.planningtargets.save"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 查询指定用户和会话当前生效的少儿保险规划目标。
+//
+// Summary: 查询指定用户和会话当前生效的少儿保险规划目标。
+func (client *Client) QueryGwchildinsurancePlanningtargets(request *QueryGwchildinsurancePlanningtargetsRequest) (_result *QueryGwchildinsurancePlanningtargetsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryGwchildinsurancePlanningtargetsResponse{}
+	_body, _err := client.QueryGwchildinsurancePlanningtargetsEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 查询指定用户和会话当前生效的少儿保险规划目标。
+//
+// Summary: 查询指定用户和会话当前生效的少儿保险规划目标。
+func (client *Client) QueryGwchildinsurancePlanningtargetsEx(request *QueryGwchildinsurancePlanningtargetsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGwchildinsurancePlanningtargetsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryGwchildinsurancePlanningtargetsResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.planningtargets.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
