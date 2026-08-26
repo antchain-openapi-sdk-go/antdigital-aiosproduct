@@ -1616,6 +1616,97 @@ func (s *QueryGwchildinsurancePlanningtargetsResponse) SetSuccess(v bool) *Query
 	return s
 }
 
+type QueryGwchildinsurancePlanningtargetslatestRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 租户标识，沿用已发布 Profile API 的租户校验。
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
+	// JSON 字符串形式的业务请求；必须是单层 JSON 字符串，不能再次序列化成二层 JSON 字符串。
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
+}
+
+func (s QueryGwchildinsurancePlanningtargetslatestRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwchildinsurancePlanningtargetslatestRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestRequest) SetAuthToken(v string) *QueryGwchildinsurancePlanningtargetslatestRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestRequest) SetProductInstanceId(v string) *QueryGwchildinsurancePlanningtargetslatestRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestRequest) SetTenantId(v string) *QueryGwchildinsurancePlanningtargetslatestRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestRequest) SetRequestData(v string) *QueryGwchildinsurancePlanningtargetslatestRequest {
+	s.RequestData = &v
+	return s
+}
+
+type QueryGwchildinsurancePlanningtargetslatestResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 业务数据 JSON 字符串；内容为 Planning Targets 业务对象。
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 成功时允许为 null，失败时返回可理解原因。
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 业务处理是否成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryGwchildinsurancePlanningtargetslatestResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGwchildinsurancePlanningtargetslatestResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestResponse) SetReqMsgId(v string) *QueryGwchildinsurancePlanningtargetslatestResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestResponse) SetResultCode(v string) *QueryGwchildinsurancePlanningtargetslatestResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestResponse) SetResultMsg(v string) *QueryGwchildinsurancePlanningtargetslatestResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestResponse) SetData(v string) *QueryGwchildinsurancePlanningtargetslatestResponse {
+	s.Data = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestResponse) SetMessage(v string) *QueryGwchildinsurancePlanningtargetslatestResponse {
+	s.Message = &v
+	return s
+}
+
+func (s *QueryGwchildinsurancePlanningtargetslatestResponse) SetSuccess(v bool) *QueryGwchildinsurancePlanningtargetslatestResponse {
+	s.Success = &v
+	return s
+}
+
 type Client struct {
 	Endpoint                *string
 	RegionId                *string
@@ -1746,7 +1837,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.0.8"),
+				"sdk_version":      tea.String("1.0.9"),
 				"_prod_code":       tea.String("AIOSPRODUCT"),
 				"_prod_channel":    tea.String("default"),
 			}
@@ -2229,6 +2320,42 @@ func (client *Client) QueryGwchildinsurancePlanningtargetsEx(request *QueryGwchi
 	}
 	_result = &QueryGwchildinsurancePlanningtargetsResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.planningtargets.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 查询最近选择的孩子
+//
+// Summary: 查询最近选择的孩子
+func (client *Client) QueryGwchildinsurancePlanningtargetslatest(request *QueryGwchildinsurancePlanningtargetslatestRequest) (_result *QueryGwchildinsurancePlanningtargetslatestResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryGwchildinsurancePlanningtargetslatestResponse{}
+	_body, _err := client.QueryGwchildinsurancePlanningtargetslatestEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 查询最近选择的孩子
+//
+// Summary: 查询最近选择的孩子
+func (client *Client) QueryGwchildinsurancePlanningtargetslatestEx(request *QueryGwchildinsurancePlanningtargetslatestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGwchildinsurancePlanningtargetslatestResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryGwchildinsurancePlanningtargetslatestResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.planningtargetslatest.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
