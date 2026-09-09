@@ -2344,6 +2344,97 @@ func (s *QueryGwchildinsuranceRecommendationcandidateResponse) SetSuccess(v bool
 	return s
 }
 
+type ResetGwchildinsuranceRecommendationcandidateRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 当前联调租户；必须精确命中 finaigateway 发布白名单
+	TenantId *string `json:"tenant_id,omitempty" xml:"tenant_id,omitempty" require:"true"`
+	// 输入参数
+	RequestData *string `json:"request_data,omitempty" xml:"request_data,omitempty" require:"true"`
+}
+
+func (s ResetGwchildinsuranceRecommendationcandidateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResetGwchildinsuranceRecommendationcandidateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateRequest) SetAuthToken(v string) *ResetGwchildinsuranceRecommendationcandidateRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateRequest) SetProductInstanceId(v string) *ResetGwchildinsuranceRecommendationcandidateRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateRequest) SetTenantId(v string) *ResetGwchildinsuranceRecommendationcandidateRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateRequest) SetRequestData(v string) *ResetGwchildinsuranceRecommendationcandidateRequest {
+	s.RequestData = &v
+	return s
+}
+
+type ResetGwchildinsuranceRecommendationcandidateResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 业务数据 JSON 字符串
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 成功时允许为 null，失败时返回可理解原因
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 业务处理是否成功
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ResetGwchildinsuranceRecommendationcandidateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResetGwchildinsuranceRecommendationcandidateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateResponse) SetReqMsgId(v string) *ResetGwchildinsuranceRecommendationcandidateResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateResponse) SetResultCode(v string) *ResetGwchildinsuranceRecommendationcandidateResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateResponse) SetResultMsg(v string) *ResetGwchildinsuranceRecommendationcandidateResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateResponse) SetData(v string) *ResetGwchildinsuranceRecommendationcandidateResponse {
+	s.Data = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateResponse) SetMessage(v string) *ResetGwchildinsuranceRecommendationcandidateResponse {
+	s.Message = &v
+	return s
+}
+
+func (s *ResetGwchildinsuranceRecommendationcandidateResponse) SetSuccess(v string) *ResetGwchildinsuranceRecommendationcandidateResponse {
+	s.Success = &v
+	return s
+}
+
 type Client struct {
 	Endpoint                *string
 	RegionId                *string
@@ -2474,7 +2565,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.0.13"),
+				"sdk_version":      tea.String("1.0.14"),
 				"_prod_code":       tea.String("AIOSPRODUCT"),
 				"_prod_channel":    tea.String("default"),
 			}
@@ -3245,6 +3336,42 @@ func (client *Client) QueryGwchildinsuranceRecommendationcandidateEx(request *Qu
 	}
 	_result = &QueryGwchildinsuranceRecommendationcandidateResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.recommendationcandidate.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 选择预览
+//
+// Summary: 选择预览
+func (client *Client) ResetGwchildinsuranceRecommendationcandidate(request *ResetGwchildinsuranceRecommendationcandidateRequest) (_result *ResetGwchildinsuranceRecommendationcandidateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &ResetGwchildinsuranceRecommendationcandidateResponse{}
+	_body, _err := client.ResetGwchildinsuranceRecommendationcandidateEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 选择预览
+//
+// Summary: 选择预览
+func (client *Client) ResetGwchildinsuranceRecommendationcandidateEx(request *ResetGwchildinsuranceRecommendationcandidateRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ResetGwchildinsuranceRecommendationcandidateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &ResetGwchildinsuranceRecommendationcandidateResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.aiosproduct.gwchildinsurance.recommendationcandidate.reset"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
